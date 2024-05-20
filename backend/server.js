@@ -11,11 +11,10 @@ app.use(bodyParser.json());
 const pool = mysql.createPool({
   host: "localhost",
   user: "root",
-  password: "Monstrozitate1!",
+  password: "Cavaler19",
   database: "centru_medical",
   connectionLimit: 10
 });
-
 
 const users = [
   { username: 'admin', password: 'admin' } 
@@ -38,6 +37,7 @@ app.post('/api/login', (req, res) => {
 app.get('/api/doctors', (req, res) => {
   pool.query('SELECT * FROM doctor', (err, results) => {
     res.json(results);
+    console.log(err);
   });
 });
 
@@ -86,6 +86,12 @@ app.get('/api/patients', (req, res) => {
     res.json(results);
   });
 });
+
+app.get('/api/patients_doctors', (req, res) =>{
+  pool.query('SELECT * FROM patient JOIN doctor ON patient.doctor_id = doctor.doctor_id', (err, results) => {
+    res.json(results);
+  });
+})
 
 
 app.get('/api/inventory', (req, res) => {

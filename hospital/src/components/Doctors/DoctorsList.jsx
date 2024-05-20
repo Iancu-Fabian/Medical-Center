@@ -43,11 +43,11 @@ export const DoctorsList = () => {
             <tr key={index}>
     <th scope="row">{doctor.doctor_id}</th>
     <td>{doctor.card_id}</td>
-    <td>{doctor.firstname}</td>
-    <td>{doctor.lastname}</td>
-    <td>{doctor.phone}</td>
+    <td>{doctor.d_firstname}</td>
+    <td>{doctor.d_lastname}</td>
+    <td>{doctor.d_phone}</td>
     <td>{doctor.email}</td>
-    <td>{doctor.address}</td>
+    <td>{doctor.d_address}</td>
     <td>{doctor.specialization}</td>
     <td>{doctor.medical_center_id}</td>
   </tr>
