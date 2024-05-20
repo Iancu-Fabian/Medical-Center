@@ -23,7 +23,7 @@ export const Dashboard = () => {
   const fetchDiagnoses = async () => {
       const response = await fetch('http://localhost:3000/api/diagnoses', {mode:'cors'});
       const data = await response.json();
-      setLatestAppointments(data);
+      setDiagnoses(data);
   };
 
   const fetchPatientstotal = async () => {
@@ -71,7 +71,7 @@ export const Dashboard = () => {
     fetchAppointmentstotal();
     fetchInventorytotal();
     fetchLatestAppointments();
-    fetchDiagnoses();
+    fetchDiagnoses(); 
   }, []);
 
   return (
@@ -150,7 +150,7 @@ export const Dashboard = () => {
 
         </div>
       </div>
-      
+      <div className={styles.bigContainer}>
       <div className={styles.activityContainer2}>
 
         <span className={styles.title}>Latest Appointments</span>
@@ -178,6 +178,21 @@ export const Dashboard = () => {
           </table>
         </div>
       </div>
+        <div className={styles.activityContainer3}>
+          
+          
+          
+        <span className={styles.title}>Most common 3 diagnoses</span>
+        <ul>
+            {Diagnoses.map((diag, index) => (
+            
+            <li key={index} className={styles.items}><div className={styles.rect}>{diag.Diagnose} </div></li>
+          ))}
+        </ul>
+        </div>
+        </div>
     </div>
   );
 };
+
+   

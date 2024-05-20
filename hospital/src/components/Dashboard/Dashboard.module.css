@@ -2,7 +2,6 @@
     padding-left: 42px;
     padding-top: 15px;
     display: flex;
-    flex-direction: row;
 }
 
 .activityContainer1{
@@ -51,4 +50,39 @@
    
 }
 
+.bigContainer{
+    display: flex;
+    flex-direction: column;
+}
 
+.activityContainer3{
+    margin-top: 40px;
+    margin-left: 70px;
+    background-color: white;
+    width: 40vw;
+    padding-left: 35px;
+    height: 29vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.items{
+    list-style-type: none;
+    display: inline;
+    margin-right: 60px;
+}
+
+.rect{
+    display: inline-block;
+    width: 50px;
+        height: 50px;
+        background-color: rgba(196, 72, 79, 0.5);
+        border-radius: 8px;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 16px;
+        text-align: center;
+        padding: 10px;
+}
