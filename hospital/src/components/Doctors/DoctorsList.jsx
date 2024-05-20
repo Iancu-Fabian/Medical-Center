@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import styles from './DoctorsList.module.css';
 
 export const DoctorsList = () => {
   const [doctors, setDoctors] = useState([]);
@@ -24,6 +25,7 @@ export const DoctorsList = () => {
 
   return (
     <div>
+      <div className ={styles.tableWrap}>
       <table className="table table-hover">
   <thead>
     <tr>
@@ -54,6 +56,7 @@ export const DoctorsList = () => {
 ))}
   </tbody>
 </table>
+</div>
     </div>
 
 

@@ -40,6 +40,15 @@
     margin:20px;
 }
 
-#table1{
-    padding: 10px;
+.tableWrapper {
+    max-height: 300px;
+    overflow-y: auto;
+    width:550px;
 }
+
+#table1 {
+    width: 400px;
+   
+}
+
+

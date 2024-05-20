@@ -113,10 +113,47 @@ app.get('/api/staff', (req, res) => {
 });
 
 app.get('/api/latestappointments', (req, res) => {
-  pool.query('SELECT * FROM appointment ORDER BY appointment_date DESC LIMIT 10', (err, results) => {
+  pool.query('SELECT * FROM appointment ORDER BY appointment_date DESC LIMIT 5', (err, results) => {
     res.json(results);
   });
 });
+
+app.post('/api/inventory', (req, res) => {
+  const { medicament_id, medicament_name, quantity, disease, medical_center_id } = req.body;
+  const query = 'INSERT INTO inventory (medicament_id, medicament_name, quantity, disease, medical_center_id) VALUES (?, ?, ?, ?, ?)';
+  pool.query(query, [medicament_id, medicament_name, quantity, disease, medical_center_id], (err, results) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    res.status(201).json({ message: 'Item adăugat cu succes!' });
+  });
+});
+
+// Update item în inventar
+app.put('/api/inventory/:id', (req, res) => {
+  const { id } = req.params;
+  const { medicament_name, quantity, disease, medical_center_id } = req.body;
+  const query = 'UPDATE inventory SET medicament_name = ?, quantity = ?, disease = ?, medical_center_id = ? WHERE medicament_id = ?';
+  pool.query(query, [medicament_name, quantity, disease, medical_center_id, id], (err, results) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    res.status(200).json({ message: 'Item actualizat cu succes!' });
+  });
+});
+
+// Stergere item din inventar
+app.delete('/api/inventory/:id', (req, res) => {
+  const { id } = req.params;
+  const query = 'DELETE FROM inventory WHERE medicament_id = ?';
+  pool.query(query, [id], (err, results) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    res.status(200).json({ message: 'Item șters cu succes!' });
+  });
+});
+
 
 app.listen(3000, () => {
   console.log('Serverul rulează pe portul 3000');
