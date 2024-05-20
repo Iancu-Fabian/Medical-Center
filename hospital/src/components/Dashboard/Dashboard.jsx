@@ -147,30 +147,29 @@ export const Dashboard = () => {
 
         <span className={styles.title}>Latest Appointments</span>
 
-        <table className="table table-hover" id="table1">
-          <thead>
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Patient</th>
-              <th scope="col">Doctor</th>
-              <th scope="col">Date</th>
-            </tr>
-           </thead>
-          <tbody>
-            {LatestAppointments.map((app, index) => (
-              <tr key={index}>
-                <th scope="row">{app.appointment_id}</th>
-                <td>{app.p_firstname+' '+app.p_lastname}</td>
-                <td>{app.d_firstname+' '+app.d_lastname}</td>
-                <td>{app.appointment_date}</td>
+         <div className={styles.tableWrapper}>
+          <table className={`table table-hover ${styles.table}`} id="table1">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Patient</th>
+                <th scope="col">Doctor</th>
+                <th scope="col">Date</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-        
-      </div>  
-
+            </thead>
+            <tbody>
+              {LatestAppointments.map((app, index) => (
+                <tr key={index}>
+                  <th scope="row">{app.appointment_id}</th>
+                  <td>{app.patient_id}</td>
+                  <td>{app.doctor_id}</td>
+                  <td>{app.appointment_date}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-    
-  )
-}
+  );
+};

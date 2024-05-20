@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import styles from './Patients.module.css';
 
 export const Patients = () => {
   const [patients, setPatients] = useState([]);
@@ -24,6 +25,7 @@ export const Patients = () => {
 
   return (
     <div>
+      <div className ={styles.tableWrap}>
       <table className="table table-hover">
   <thead>
     <tr>
@@ -59,6 +61,7 @@ export const Patients = () => {
 ))}
   </tbody>
 </table>
+</div>
     </div>
 
 

@@ -1,0 +1,17 @@
+.da{
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.buttonContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 70px;
+}
+
+.tableWrap{
+    overflow-y: auto;
+    max-height: 500px;
+}
+
