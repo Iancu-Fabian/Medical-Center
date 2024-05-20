@@ -28,7 +28,6 @@ export const DoctorsList = () => {
   <thead>
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Card ID</th>
       <th scope="col">First name</th>
       <th scope="col">Last name</th>
       <th scope="col">Phone number</th>
@@ -42,7 +41,6 @@ export const DoctorsList = () => {
    {doctors.map((doctor, index) => (
             <tr key={index}>
     <th scope="row">{doctor.doctor_id}</th>
-    <td>{doctor.card_id}</td>
     <td>{doctor.d_firstname}</td>
     <td>{doctor.d_lastname}</td>
     <td>{doctor.d_phone}</td>
