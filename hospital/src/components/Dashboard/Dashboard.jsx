@@ -10,6 +10,7 @@ export const Dashboard = () => {
   const [appointmentstotal, setAppointmentstotal] = useState([]);
   const [inventorytotal, setInventorytotal] = useState([]);
   const [LatestAppointments, setLatestAppointments] = useState([]);
+  const [Diagnoses, setDiagnoses] = useState([]);
 
   
 
@@ -17,6 +18,12 @@ export const Dashboard = () => {
       const response = await fetch('http://localhost:3000/api/doctorstotal', {mode:'cors'});
       const data = await response.json();
       setDoctorstotal(data[0]["COUNT(*)"]);
+  };
+
+  const fetchDiagnoses = async () => {
+      const response = await fetch('http://localhost:3000/api/diagnoses', {mode:'cors'});
+      const data = await response.json();
+      setLatestAppointments(data);
   };
 
   const fetchPatientstotal = async () => {
@@ -64,6 +71,7 @@ export const Dashboard = () => {
     fetchAppointmentstotal();
     fetchInventorytotal();
     fetchLatestAppointments();
+    fetchDiagnoses();
   }, []);
 
   return (

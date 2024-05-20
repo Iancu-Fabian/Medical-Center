@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 const pool = mysql.createPool({
   host: "localhost",
   user: "root",
-  password: "Cavaler19",
+  password: "Monstrozitate1!",
   database: "centru_medical",
   connectionLimit: 10
 });
@@ -119,7 +119,13 @@ app.get('/api/staff', (req, res) => {
 });
 
 app.get('/api/latestappointments', (req, res) => {
-  pool.query('SELECT * FROM appointment JOIN patient ON appointment.patient_id = patient.patient_id JOIN doctor ON appointment.doctor_id = doctor.doctor_id ORDER BY appointment_date DESC LIMIT 6', (err, results) => {
+  pool.query('SELECT * FROM appointment JOIN patient ON appointment.patient_id = patient.patient_id JOIN doctor ON appointment.doctor_id = doctor.doctor_id ORDER BY appointment_date DESC LIMIT 4', (err, results) => {
+    res.json(results);
+  });
+});
+
+app.get('/api/diagnoses', (req, res) => {
+  pool.query('SELECT Diagnose, COUNT(*) as num_cases FROM patient GROUP BY Diagnose ORDER BY num_cases DESC LIMIT 3;', (err, results) => {
     res.json(results);
   });
 });
