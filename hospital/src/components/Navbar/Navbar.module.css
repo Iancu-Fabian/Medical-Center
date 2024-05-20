@@ -1,0 +1,82 @@
+@import "../../vars.css";
+
+.navbar{
+    padding:30px;
+    width:250px;
+    background-color: white;
+}
+
+.titlelogo {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+}
+
+.logo{
+    width: 36px;
+    height: 29px;
+    margin-right: 10px;
+}
+
+.title{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.link:hover svg {
+    fill: #3497F9;
+}
+
+.link:hover .navtext{
+    color:#3497F9;
+}
+
+svg{
+    fill: var(--color-navbar-elements);
+}
+
+.navtext{
+    margin-left:15px;
+    color: var(--color-navbar-elements);
+}
+
+.dashboard{
+    width: 22px;
+    height: 14px;
+   
+}
+
+.clients {
+    width: 21px;
+    height: 12px;
+    
+}
+
+.appointments {
+    width: 15px;
+    height: 15px;
+}
+
+.doctors {
+    width: 20px;
+    height: 16px;
+}
+
+.inventory {
+    width: 22px;
+    height: 22px;
+}
+
+
+
+
