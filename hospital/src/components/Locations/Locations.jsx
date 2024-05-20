@@ -71,7 +71,7 @@ export const LocationsList = () => {
 ))}
   </tbody>
 </table>
-    <MapContainer center={[44.4168886,24.9172066]} zoom={9} style={{ height: "60vh", width: "90%" }}>
+    <MapContainer center={[44.4168886,24.9172066]} zoom={9} style={{ height: "60vh", width: "99%" }}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
