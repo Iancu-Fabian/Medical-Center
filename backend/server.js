@@ -82,7 +82,7 @@ app.get('/api/stafftotal', (req, res) => {
 
 app.get('/api/patients', (req, res) => {
   res.set('Access-Control-Allow-Origin', '*');
-  pool.query('SELECT * FROM patient', (err, results) => {
+  pool.query('SELECT * FROM patient JOIN doctor ON patient.doctor_id = doctor.doctor_id', (err, results) => {
     res.json(results);
   });
 });
@@ -101,7 +101,7 @@ app.get('/api/inventory', (req, res) => {
 });
 
 app.get('/api/appointments', (req, res) => {
-  pool.query('SELECT * FROM appointment', (err, results) => {
+  pool.query('SELECT * FROM appointment JOIN patient ON appointment.patient_id = patient.patient_id JOIN doctor ON appointment.doctor_id = doctor.doctor_id', (err, results) => {
     res.json(results);
   });
 });
@@ -119,7 +119,7 @@ app.get('/api/staff', (req, res) => {
 });
 
 app.get('/api/latestappointments', (req, res) => {
-  pool.query('SELECT * FROM appointment ORDER BY appointment_date DESC LIMIT 10', (err, results) => {
+  pool.query('SELECT * FROM appointment JOIN patient ON appointment.patient_id = patient.patient_id JOIN doctor ON appointment.doctor_id = doctor.doctor_id ORDER BY appointment_date DESC LIMIT 6', (err, results) => {
     res.json(results);
   });
 });

@@ -36,7 +36,7 @@ export const Patients = () => {
       <th scope="col">Doctor</th>
       <th scope="col">Room number</th>
       <th scope="col">Phone</th>
-      <th scope="col">Address</th>
+      <th scope="col">Diagnose</th>
       <th scope="col">Medical center</th>
     </tr>
   </thead>
@@ -49,10 +49,10 @@ export const Patients = () => {
     <td>{patient.cnp}</td>
     <td>{patient.identification_number}</td>
     <td>{patient.check_in}</td>
-    <td>{patient.doctor_id}</td>
+    <td>{patient.d_firstname+' '+patient.d_lastname}</td>
     <td>{patient.room_number}</td>
     <td>{patient.p_phone}</td>
-    <td>{patient.p_address}</td>
+    <td>{patient.diagnose}</td>
     <td>{patient.medical_center_id}</td>
 
   </tr>
