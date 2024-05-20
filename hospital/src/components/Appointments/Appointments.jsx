@@ -37,8 +37,8 @@ export const AppointmentsList = () => {
    {appointments.map((app, index) => (
             <tr key={index}>
     <th scope="row">{app.appointment_id}</th>
-    <td>{app.patient_id}</td>
-    <td>{app.doctor_id}</td>
+    <td>{app.p_firstname+' '+app.p_lastname}</td>
+    <td>{app.d_firstname+' '+app.d_lastname}</td>
     <td>{app.appointment_date}</td>
   </tr>
 ))}
