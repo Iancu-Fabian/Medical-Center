@@ -95,10 +95,12 @@ app.get('/api/patients_doctors', (req, res) =>{
 
 
 app.get('/api/inventory', (req, res) => {
-  pool.query('SELECT * FROM inventory', (err, results) => {
+  pool.query('SELECT DATEDIFF(expiration_date, CURDATE()) AS zile_ramase, inventory.* FROM inventory', (err, results) => {
     res.json(results);
+
   });
 });
+
 
 app.get('/api/appointments', (req, res) => {
   pool.query('SELECT * FROM appointment JOIN patient ON appointment.patient_id = patient.patient_id JOIN doctor ON appointment.doctor_id = doctor.doctor_id', (err, results) => {
