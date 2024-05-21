@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import styles from './Patients.module.css';
 import { Modal, Button, Form } from 'react-bootstrap';
-import axios from 'axios'; // Adăugat pentru a folosi axios
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import styles from './Patients.module.css';
 
 export const Patients = () => {
   const [showModal, setShowModal] = useState(false);
@@ -12,7 +14,7 @@ export const Patients = () => {
     cnp: '',
     identification_number: '',
     doctor_id: 0,
-    diagnosis: '',
+    diagnose: '',
     room_number: 0,
     p_phone: '',
     p_address: '',
@@ -32,7 +34,7 @@ export const Patients = () => {
     }
   };
 
-  const handleInsert = async () => {
+  const handleInsert = () => {
     setIsUpdate(false);
     setFormData({
       p_firstname: '',
@@ -40,7 +42,7 @@ export const Patients = () => {
       cnp: '',
       identification_number: '',
       doctor_id: 0,
-      diagnosis: '',
+      diagnose: '',
       room_number: 0,
       p_phone: '',
       p_address: '',
@@ -59,10 +61,14 @@ export const Patients = () => {
       if (response.status === 201) {
         fetchPatients();
       } else {
-        console.error('Eroare la adăugarea pacientului în inventar.');
+        toast.error('Eroare la adăugarea pacientului în inventar.');
       }
     } catch (error) {
-      console.error('Eroare la salvarea pacientului în inventar:', error);
+      if (error.response && error.response.data) {
+        toast.error(`Eroare: ${error.response.data.message}`);
+      } else {
+        toast.error('Eroare la salvarea pacientului în inventar.');
+      }
     } finally {
       setShowModal(false);
     }
@@ -191,12 +197,12 @@ export const Patients = () => {
                 onChange={handleChange}
               />
             </Form.Group>
-            <Form.Group controlId="diagnosis">
-              <Form.Label>Diagnosis</Form.Label>
+            <Form.Group controlId="diagnose">
+              <Form.Label>Diagnose</Form.Label>
               <Form.Control
                 type="text"
-                name="diagnosis"
-                value={formData.diagnosis}
+                name="diagnose"
+                value={formData.diagnose}
                 onChange={handleChange}
               />
             </Form.Group>
@@ -216,6 +222,8 @@ export const Patients = () => {
           <Button variant="primary" onClick={handleSave}>{isUpdate ? 'Update' : 'Insert'}</Button>
         </Modal.Footer>
       </Modal>
+
+      <ToastContainer />
     </div>
   );
 };
