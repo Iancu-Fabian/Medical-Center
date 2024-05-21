@@ -153,7 +153,6 @@ app.post('/api/patients', (req, res) => {
   });
 });
 
-// Update item în inventar
 app.put('/api/inventory/:id', (req, res) => {
   const { id } = req.params;
   const { medicament_name, quantity, disease, medical_center_id } = req.body;
@@ -166,7 +165,6 @@ app.put('/api/inventory/:id', (req, res) => {
   });
 });
 
-// Stergere item din inventar
 app.delete('/api/inventory/:id', (req, res) => {
   const { id } = req.params;
   const query = 'DELETE FROM inventory WHERE medicament_id = ?';

@@ -12,7 +12,7 @@ export const Patients = () => {
     cnp: '',
     identification_number: '',
     doctor_id: 0,
-    diagnose: '',
+    diagnosis: '',
     room_number: 0,
     p_phone: '',
     p_address: '',
@@ -40,7 +40,7 @@ export const Patients = () => {
       cnp: '',
       identification_number: '',
       doctor_id: 0,
-      diagnose: '',
+      diagnosis: '',
       room_number: 0,
       p_phone: '',
       p_address: '',
@@ -191,11 +191,11 @@ export const Patients = () => {
                 onChange={handleChange}
               />
             </Form.Group>
-            <Form.Group controlId="diagnose">
-              <Form.Label>Diagnose</Form.Label>
+            <Form.Group controlId="diagnosis">
+              <Form.Label>Diagnosis</Form.Label>
               <Form.Control
                 type="text"
-                name="diagnose"
+                name="diagnosis"
                 value={formData.diagnosis}
                 onChange={handleChange}
               />
