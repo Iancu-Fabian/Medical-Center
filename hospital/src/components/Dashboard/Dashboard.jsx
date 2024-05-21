@@ -186,7 +186,7 @@ export const Dashboard = () => {
         <ul className={styles.diagnosesList}>
             {Diagnoses.map((diag, index) => (
             
-              <li key={index} className={styles.items}><div className={styles.diag}>{diag.Diagnose}</div> <div className={styles.cases}>{diag.num_cases} cases</div> </li>
+              <li key={index} className={styles.items}><div className={styles.diag}>{diag.diagnosis}</div> <div className={styles.cases}>{diag.num_cases} cases</div> </li>
           ))}
         </ul>
         </div>

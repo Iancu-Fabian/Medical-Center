@@ -126,7 +126,7 @@ app.get('/api/latestappointments', (req, res) => {
 });
 
 app.get('/api/diagnoses', (req, res) => {
-  pool.query('SELECT Diagnose, COUNT(*) as num_cases FROM patient GROUP BY Diagnose ORDER BY num_cases DESC LIMIT 3;', (err, results) => {
+  pool.query('SELECT diagnosis, COUNT(*) as num_cases FROM patient GROUP BY diagnosis ORDER BY num_cases DESC LIMIT 3;', (err, results) => {
     res.json(results);
   });
 });
@@ -136,6 +136,17 @@ app.post('/api/inventory', (req, res) => {
   const { medicament_id, medicament_name, quantity, disease, medical_center_id } = req.body;
   const query = 'INSERT INTO inventory (medicament_id, medicament_name, quantity, disease, medical_center_id) VALUES (?, ?, ?, ?, ?)';
   pool.query(query, [medicament_id, medicament_name, quantity, disease, medical_center_id], (err, results) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    res.status(201).json({ message: 'Item adăugat cu succes!' });
+  });
+});
+
+app.post('/api/patients', (req, res) => {
+  const { p_firstname, p_lastname, cnp, identification_number, doctor_id, diagnosis, room_number, p_phone, p_address, medical_center_id } = req.body;
+  const query = 'INSERT INTO patient (p_firstname, p_lastname, cnp, identification_number, doctor_id, diagnosis, room_number, p_phone, p_address, medical_center_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+  pool.query(query, [p_firstname, p_lastname, cnp, identification_number, doctor_id, diagnosis, room_number, p_phone, p_address, medical_center_id], (err, results) => {
     if (err) {
       return res.status(500).json({ error: err.message });
     }
