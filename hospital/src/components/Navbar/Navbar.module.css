@@ -1,7 +1,7 @@
 @import "../../vars.css";
 
 .navbar{
-    padding:30px;
+    padding:23px;
     width:250px;
     background-color: white;
 }
@@ -19,8 +19,9 @@
 }
 
 .title{
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 24px;
+    margin-top: 3px;
 }
 
 .links {

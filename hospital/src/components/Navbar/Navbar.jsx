@@ -7,7 +7,7 @@ export const Navbar = () => {
     <div className={styles.navbar}>
         <div className={styles.titlelogo}>
             <img src={getImageUrl('nav/logo.svg')} className={styles.logo}></img>
-            <h1 className={styles.title}>Clinique</h1>
+            <h1 className={styles.title}>RFI Clinic</h1>
         </div>
         <nav className={styles.links}>
             <a href="/" className={styles.link}>

@@ -182,11 +182,11 @@ export const Dashboard = () => {
           
           
           
-        <span className={styles.title}>Most common 3 diagnoses</span>
-        <ul>
+        <span className={styles.title2}>Most common diagnoses</span>
+        <ul className={styles.diagnosesList}>
             {Diagnoses.map((diag, index) => (
             
-            <li key={index} className={styles.items}><div className={styles.rect}>{diag.Diagnose} </div></li>
+              <li key={index} className={styles.items}><div className={styles.diag}>{diag.Diagnose}</div> <div className={styles.cases}>{diag.num_cases} cases</div> </li>
           ))}
         </ul>
         </div>
