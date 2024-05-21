@@ -97,7 +97,6 @@ app.get('/api/patients_doctors', (req, res) =>{
 app.get('/api/inventory', (req, res) => {
   pool.query('SELECT DATEDIFF(expiration_date, CURDATE()) AS zile_ramase, inventory.* FROM inventory', (err, results) => {
     res.json(results);
-
   });
 });
 

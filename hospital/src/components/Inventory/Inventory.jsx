@@ -13,7 +13,8 @@ export const InventoryList = () => {
       const data = await response.json();
       setInventory(data);
     } catch (error) {
-      console.error('Eroare la obținerea listei de doctori:', error);
+      console.log(error);
+      console.error('Eroare la obținerea listei de medicamente:', error);
     }
   };
 
@@ -128,4 +129,3 @@ export const InventoryList = () => {
     </div>
   );
 };
-

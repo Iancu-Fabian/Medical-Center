@@ -13,7 +13,7 @@ export const Patients = () => {
       const data = await response.json();
       setPatients(data);
     } catch (error) {
-      console.error('Eroare la obținerea listei de doctori:', error);
+      console.error('Eroare la obținerea listei de patienti:', error);
     }
   };
 
