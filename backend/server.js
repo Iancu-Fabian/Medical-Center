@@ -131,6 +131,7 @@ app.get('/api/diagnoses', (req, res) => {
   });
 });
 
+// Insert item in inventar
 app.post('/api/inventory', (req, res) => {
   const { medicament_id, medicament_name, quantity, disease, medical_center_id } = req.body;
   const query = 'INSERT INTO inventory (medicament_id, medicament_name, quantity, disease, medical_center_id) VALUES (?, ?, ?, ?, ?)';
